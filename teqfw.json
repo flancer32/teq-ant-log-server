@@ -1,0 +1,21 @@
+{
+  "@teqfw/di": {
+    "autoload": {
+      "ns": "Fl32_Log_Server",
+      "path": "./src"
+    }
+  },
+  "@teqfw/web": {
+    "handlers": {
+      "Fl32_Log_Server_Back_Web_Handler_Beacon": {
+        "before": ["TeqFw_Web_Back_App_Server_Handler_Static"],
+        "spaces": ["log-agg-beacon"]
+      }
+    }
+  },
+  "@teqfw/web-api": {
+    "services": [
+      "Fl32_Log_Server_Back_Web_Api_Logs_List"
+    ]
+  }
+}

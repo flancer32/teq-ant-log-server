@@ -1,0 +1,55 @@
+{
+  "entity": {
+    "log": {
+      "comment": "Logs registry.",
+      "attr": {
+        "bid": {"type": "id"},
+        "date": {
+          "comment": "Log date-time (UTC).",
+          "type": "datetime",
+          "default": "current"
+        },
+        "type": {
+          "comment": "Type of the log emitter (0 - back, 1 - front).",
+          "type": "integer",
+          "default": 0,
+          "options": {
+            "isTiny": true,
+            "unsigned": true
+          }
+        },
+        "level": {
+          "comment": "Code for log level (0 - error, 1 - info, ...).",
+          "type": "integer",
+          "default": 0,
+          "options": {
+            "isTiny": true,
+            "unsigned": true
+          }
+        },
+        "source": {
+          "comment": "Namespace of the log source (filename, class, ...).",
+          "type": "string",
+          "nullable": true
+        },
+        "instance": {
+          "comment": "UUID for instance of the log producer (session ID, backend ID, ...).",
+          "type": "string",
+          "nullable": true
+        },
+        "message": {
+          "comment": "Log messages as text.",
+          "type": "text"
+        },
+        "meta": {
+          "comment": "Metadata for log entry.",
+          "type": "json",
+          "nullable": true
+        }
+      },
+      "index": {
+        "date": {"type": "index", "attrs": ["date"]}
+      }
+    }
+  }
+}
