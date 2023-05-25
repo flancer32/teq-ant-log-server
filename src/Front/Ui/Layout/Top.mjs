@@ -19,8 +19,8 @@ export default function Factory(spec) {
     const DEF = spec['Fl32_Log_Server_Front_Defaults$'];
     /** @type {Fl32_Log_Server_Front_Ui_Layout_Top_A_Time.vueCompTmpl} */
     const teqTime = spec['Fl32_Log_Server_Front_Ui_Layout_Top_A_Time$'];
-    /** @type {Fl32_Log_Server_Front_Mod_Logs} */
-    // const modLogs = spec['Fl32_Log_Server_Front_Mod_Logs$'];
+    /** @type {TeqFw_Ui_Quasar_Front_Lib_Led_Connect.vueCompTmpl} */
+    const uiLed = spec['TeqFw_Ui_Quasar_Front_Lib_Led_Connect$'];
 
     // DEFINE WORKING VARS & PROPS
     const template = `
@@ -32,6 +32,7 @@ export default function Factory(spec) {
     <q-toolbar-title>TeqFW Logs</q-toolbar-title>
     <q-space></q-space>
     <teq-time/>
+    <ui-led/>
 </q-toolbar>
 `;
 
@@ -46,7 +47,7 @@ export default function Factory(spec) {
         teq: {package: DEF.SHARED.NAME},
         name: NS,
         template,
-        components: {teqTime},
+        components: {teqTime, uiLed},
         computed: {
             displayRefresh() {
                 return this.$route.path === DEF.ROUTE_HOME;

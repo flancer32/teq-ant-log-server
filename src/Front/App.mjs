@@ -67,6 +67,7 @@ export default class Fl32_Log_Server_Front_App {
              */
             async function initEventProcessors(container) {
                 // Some processes (authentication) should be subscribed to events before Reverse Stream can be opened.
+                await container.get('Fl32_Log_Server_Front_Event_Listen_Connect_Manager$');
                 await container.get('Fl32_Log_Server_Front_Web_Event_Log_Added$');
             }
 
