@@ -46,9 +46,9 @@ export default function (spec) {
     <td class="">
         <q-avatar size="xs" :color="iconTypeColor">{{iconTypeLetter}}</q-avatar>
     </td>
-    <td class="" style="height:20px; overflow: hidden;">{{item?.instance}}</td>
-    <td class="">{{item?.source}}</td>
-    <td class="" style="height:20px; overflow: hidden;">{{item?.message}}</td>
+    <td class="" style="height:20px; overflow: hidden; border-left: 1px solid black;">{{item?.instance}}</td>
+    <td class="" style="border-left: 1px solid black;">{{item?.source}}</td>
+    <td class="" style="height:20px; overflow: hidden; border-left: 1px solid black;">{{item?.message}}</td>
 </tr>
 `;
     /**

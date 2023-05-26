@@ -1,6 +1,40 @@
 # teq-ant-log-server
 
-Log aggregation server for TeqFW apps.
+The log aggregator is designed to view logs of web applications running on mobile devices. I created this aggregator
+when I encountered the issue that there is no way to view the logs in the toolbar (DevTools) of Android/iPhone web
+applications.
+
+## Overview
+
+The `Aggregator` collects all logs received from the internet and translates them in real time using
+the `Web UI` SPA. The SPA does not have any restrictions and displays all logs for all users who have opened this app.
+
+![Schema](./doc/img/overview.png)
+
+This application utilizes SSE to translate logs to any number of developers connected to the `Web UI` SPA.
+
+## Submit Logs
+
+```javascript
+function log(message, level = 'INFO', instance = null, source = null, meta = null) {
+    const entry = {
+        date: new Date(),
+        instance, // define front instance: 'uuidV4' for example
+        level, // 'INFO|ERROR'
+        message,
+        meta, // additional meta-data: {'comment': 'any object converted to JSON'},
+        source, // message source: './path/to/script/produces/log
+        type: 'FRONT', // BACK|FRONT
+    };
+    navigator.sendBeacon('https://you.aggregator.com/log-agg-beacon', JSON.stringify(entry));
+}
+```
+
+## View Logs
+
+Open `https://you.aggregator.com/`:
+
+![Scheme](./doc/img/screen_logs.png)
 
 ## Setup
 
