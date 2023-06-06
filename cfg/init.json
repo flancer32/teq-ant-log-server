@@ -8,6 +8,13 @@
       "database": "..."
     }
   },
+  "@teqfw/db": {
+    "client": "sqlite3",
+    "connection": {
+      "filename": ":memory:"
+    },
+    "useNullAsDefault": true
+  },
   "@teqfw/web": {
     "server": {
       "port": 8080,

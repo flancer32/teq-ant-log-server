@@ -5,6 +5,11 @@
       "path": "./src"
     }
   },
+  "@teqfw/core": {
+    "plugin": {
+      "onInit": "Fl32_Log_Server_Back_Plugin_Init"
+    }
+  },
   "@teqfw/web": {
     "handlers": {
       "Fl32_Log_Server_Back_Web_Handler_Beacon": {

@@ -17,6 +17,8 @@ export default function Factory(spec) {
     // EXTRACT DEPS
     /** @type {Fl32_Log_Server_Front_Defaults} */
     const DEF = spec['Fl32_Log_Server_Front_Defaults$'];
+    /** @type {TeqFw_Core_Shared_Api_Logger} */
+    const logger = spec['TeqFw_Core_Shared_Api_Logger$']; // instance
     /** @type {Fl32_Log_Server_Front_Ui_Layout_Top_A_Time.vueCompTmpl} */
     const teqTime = spec['Fl32_Log_Server_Front_Ui_Layout_Top_A_Time$'];
     /** @type {TeqFw_Ui_Quasar_Front_Lib_Led_Connect.vueCompTmpl} */

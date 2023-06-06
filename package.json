@@ -26,9 +26,9 @@
     "@teqfw/web-api": "latest",
     "@teqfw/web-event": "latest",
     "mysql2": "latest",
-    "pg": "latest"
+    "pg": "latest",
+    "sqlite3": "latest"
   },
-  "devDependencies": {},
   "engines": {
     "node": ">=18"
   }

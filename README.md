@@ -38,7 +38,20 @@ Open `https://you.aggregator.com/`:
 
 ## Setup
 
-This app uses Knex.js to connect to PostgreSQL or MariaDB/MySQL databases.
+This app uses Knex.js to connect to PostgreSQL/MariaDB/MySQL/SQLite databases. Database structure is created on app
+startup. It is recommended to use SQLite in-memory database (`./etc/local.json`):
+
+```josn
+{
+  "@teqfw/db": {
+    "client": "sqlite3",
+    "connection": {
+      "filename": ":memory:"
+    },
+    "useNullAsDefault": true
+  }
+}
+```
 
 ### Create Database
 
