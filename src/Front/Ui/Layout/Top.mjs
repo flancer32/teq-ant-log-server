@@ -6,19 +6,6 @@
 // MODULE'S VARS
 const NS = 'Fl32_Log_Server_Front_Ui_Layout_Top';
 
-function log(message, level = 'INFO', instance = null, source = null, meta = null) {
-    const entry = {
-        date: new Date(),
-        instance, // define front instance: 'uuidV4' for example
-        level, // 'INFO|ERROR'
-        message,
-        meta, // additional meta-data: {'comment': 'any object converted to JSON'},
-        source, // message source: './path/to/script/produces/log
-        type: 'FRONT', // BACK|FRONT
-    };
-    navigator.sendBeacon('https://logs.local.teqfw.com/log-agg-beacon', JSON.stringify(entry));
-}
-
 // MODULE'S FUNCTIONS
 /**
  * Factory to create template for new Vue component instances.
@@ -36,6 +23,7 @@ export default function Factory(spec) {
     const uiLed = spec['TeqFw_Ui_Quasar_Front_Lib_Led_Connect$'];
 
     // DEFINE WORKING VARS & PROPS
+    logger.setNamespace(NS);
     const template = `
 <q-toolbar>
     <q-btn dense flat round icon="home" to="${DEF.ROUTE_HOME}"/>
@@ -45,7 +33,7 @@ export default function Factory(spec) {
     <q-toolbar-title>TeqFW Logs</q-toolbar-title>
     <q-space></q-space>
     <teq-time/>
-    <ui-led v-on:click="onClick"/>
+    <ui-led/>
 </q-toolbar>
 `;
 
@@ -69,9 +57,6 @@ export default function Factory(spec) {
         methods: {
             cleanLogs() {
                 // modLogs.clear();
-            },
-            onClick() {
-                log('Test message from the web.', 'ERROR', 'uuid', './Top.mjs');
             },
         },
     };
